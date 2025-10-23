@@ -1,0 +1,85 @@
+<!--Main Page of FreeWifi when user first connects -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Free WiFi</title>
+
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .mainpage {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .small {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+	 .logo {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="mainpage">
+        <h1>Welcome to Free WiFi</h1>
+        <p>Click below to connect to the internet.</p>
+
+	<!--Used for redirection by embedding the link within the page-->
+	<iframe src:"http://10.10.0.1"></iframe> 
+
+	
+	<!--GET Request for going to the login page with tok and redir-->
+        <form method="get" action="$authaction">
+            <input type="hidden" name="tok" value="$tok">
+            <input type="hidden" name="redir" value="$redir">
+            <button type="submit">Continue</button>
+        </form>
+	
+	<div class="tagline">Powered by <span class="logo">FreeWifi Inc.</span></div>
+    </div>
+       
+    </div>
+</body>
+</html>
+
+

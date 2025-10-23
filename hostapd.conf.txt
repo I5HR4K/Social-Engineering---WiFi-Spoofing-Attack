@@ -1,0 +1,21 @@
+#Interface for hotspot
+interface=wlan0
+
+#USB adapter driver
+driver=nl80211
+
+#SSID of hotspot
+ssid=FreeWiFi
+
+#Set up 2.4Ghz band with 802.11g
+hw_mode=g
+
+#Use channel #6 on the 2.4Ghz band
+channel=6
+
+#Authenticate anyone to hotspot
+auth_algs=1
+
+#Initialize hotspot to be broadcast
+ignore_broadcast_ssid=0
+
