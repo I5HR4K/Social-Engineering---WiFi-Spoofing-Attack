@@ -1,17 +1,29 @@
-# Social-Engineering---WiFi-Spoofing-Attack
-This is a demonstration of how a WiFi Spoofing / Evil Twin attack on public networks such as in airports and restaurants using a USB WiFi adapter and captive portal.
+# Social-Engineering: WiFi Spoofing (Evil Twin) Attack
+This repository contains a college project demonstrating a WiFi Spoofing (Evil Twin) Attack. The goal was to simulate how a malicious access point in a public setting (like an airport or café) can redirect users to a captive portal to intercept credentials.
 
-Technologies Used:
+⚠️ **Ethical Hacking Disclaimer**
+This project is for educational and research purposes ONLY. It was conducted in a controlled lab environment on test devices. These techniques should not be used for any malicious or illegal activities. Understanding these attacks is key to building stronger network defenses.
 
-1) Flash Web Server for Hosting Fake Site
-2) Hostapd to set up hotspot
-3) DNSMasq for setting DNS and DHCP
-4) Nodogsplash for setting up Captive Portal 
+**Project Overview**:
+This demonstration uses a USB WiFi adapter to create a malicious wireless access point. When a user connects to the fake WiFi network, they are assigned an IP address by a custom DHCP/DNS server and then redirected to a fake login page hosted on a Python Flask server. After the user submits their "credentials," they are granted internet access, unaware their information has been captured.
 
+## Technologies Used
 
-USB WiFi Adapter used: ALFA AWUS036ACS 802.11ac AC600 Dual Band WiFi USB Adapter
+Hardware: ALFA AWUS036ACS --> USB WiFi adapter capable of access point mode
 
-Commands Used on Kali Linux for setup:
+Hotspot: hostapd --> Used to create the malicious wireless hotspot
+
+DNS & DHCP: dnsmasq --> Assigns IP addresses to connecting devices and handles DNS requests
+
+Captive Portal: Nodogsplash --> Used to redirects all new connections to fake login page
+
+Phishing Server: Flask (Python) --> Python web framework used to host the fake login page and credential harvester
+
+Network Management: iptables, sysctl, iw --> Linux kernel utilities to manage packet forwarding and network address translation
+
+Environment: Kali Linux
+
+## Commands Used:
 sudo ip link set wlan0 down ----------> Set USB adapter interface down
 
 sudo iw dev wlan0 set type __ap ----------> Set adapter to be in access point mode for our hotspot
@@ -33,8 +45,3 @@ sudo iptables -P FORWARD ACCEPT ----------> Update Linux kernel firewall to acce
 sudo python3 PhishingServer2.py ----------> Launch our Flask web server with credential harvester
 
 sudo nodogsplash ----------> Launch our captive portal webpage
-
-
-
-
-
