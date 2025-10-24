@@ -1,11 +1,13 @@
 # Social-Engineering: WiFi Spoofing (Evil Twin) Attack
 This repository contains a college project demonstrating a WiFi Spoofing (Evil Twin) Attack. The goal was to simulate how a malicious access point in a public setting (like an airport or café) can redirect users to a captive portal to intercept credentials.
 
-⚠️ **Ethical Hacking Disclaimer**
+⚠️ **Ethical Hacking Disclaimer**:
 This project is for educational and research purposes ONLY. It was conducted in a controlled lab environment on test devices. These techniques should not be used for any malicious or illegal activities. Understanding these attacks is key to building stronger network defenses.
 
-**Project Overview**:
-This demonstration uses a USB WiFi adapter to create a malicious wireless access point. When a user connects to the fake WiFi network, they are assigned an IP address by a custom DHCP/DNS server and then redirected to a fake login page hosted on a Python Flask server. After the user submits their "credentials," they are granted internet access, unaware their information has been captured.
+## Project Overview
+This demonstration uses a USB WiFi adapter to create a malicious wireless access point. When a user connects, their device's built-in Captive Portal Detection (CPD) automatically sends a test request (typically to a port 80 URL) to check for internet access.
+
+Our setup detects this request using Nodogsplash and intercepts it, serving a fake login page hosted on a Python Flask server. After the user submits their "credentials," they are granted internet access, unaware their information has been captured.
 
 ## Technologies Used
 
